@@ -9,6 +9,8 @@ import {
 import Root from './Root/Root.jsx';
 import Home from './Component/Home/Home.jsx';
 
+import UserList from './Component/User/UserList.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -19,9 +21,16 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+        
       },
+      {
+        path:'/serUser',
+        element:<UserList/>,
+        loader: ()=> fetch('http://localhost:5000/serUser')
+      }
     ],
   },
+  
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(
